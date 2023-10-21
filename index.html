@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MIDTERM EXAM - SET B</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container-left">
+            <div class="top-container-left">
+                <h2>SUBJECT SCHEDULING</h2>
+            </div>
+            <div class="bot-container-left">
+                <h3>SUBJECT</h3>
+                <input id="subject" type="text">
+                <h3>DAY</h3>
+                <input id="day" type="text">
+                <h3>TIME</h3>
+                <input id="time" type="time">
+                <h3>ROOM</h3>
+                <input id="room" type="number">
+                <h3>INSTRUCTOR</h3>
+                <input id="instructor" type="text">
+                <button id="btnSubmit" type="button" onclick="addRow()">SUBMIT</button>
+            </div>
+        </div>
+        <div class="container-right">
+            <input class="search-bar" type="text" placeholder="Search">
+            <table id="studentTable">
+                <tr>
+                    <th>SUBJECT</th>
+                    <th>DAY</th>
+                    <th>TIME</th>
+                    <th>ROOM</th>
+                    <th>INSTRUCTOR</th>
+                    <th style="width: 88px;"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
