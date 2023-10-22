@@ -105,8 +105,48 @@ function deleteRow(button) {
         studentData.splice(rowIndex, 1);
         row.remove();
     }
-
 }
+
+function searchSubjects() {
+    const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+
+    clearTable();
+
+    studentData.forEach((student, index) => {
+        if (student.subject.toLowerCase().includes(searchTerm)) {
+            addTableRow(index);
+        }
+    });
+}
+
+function clearTable() {
+    const table = document.getElementById("studentTable");
+    const rowCount = table.rows.length;
+
+    for (let i = rowCount - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
+}
+
+function addTableRow(index) {
+    const student = studentData[index];
+    const newRow = document.getElementById("studentTable").insertRow(-1);
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    const cell3 = newRow.insertCell(2);
+    const cell4 = newRow.insertCell(3);
+    const cell5 = newRow.insertCell(4);
+    const cell6 = newRow.insertCell(5);
+
+    cell1.innerHTML = student.subject;
+    cell2.innerHTML = student.day;
+    cell3.innerHTML = student.time;
+    cell4.innerHTML = student.room;
+    cell5.innerHTML = student.instructor;
+    cell6.innerHTML = '<button style="border: none; background: none; cursor: pointer; margin: 0;" onclick="editRow(this)"><img style="height: 25px;" src="pencil.png"/></button> <button style="border: none; background: none; cursor: pointer; margin: 0;" onclick="deleteRow(this)"><img style="height: 25px;" src="delete.png"/></button>';
+}
+
+document.getElementById("search-btn").addEventListener("click", searchSubjects);
 
 function initializeTable() {
     studentData.forEach((student) => {
@@ -124,6 +164,16 @@ function initializeTable() {
         cell5.innerHTML = student.instructor;
 
     });
+
+    studentData.forEach((student, index) => {
+        addTableRow(index);
+    });
+
+    document.getElementById("search-btn").addEventListener("click", searchSubjects);
+
 }
 
 initializeTable();
+
+
+
