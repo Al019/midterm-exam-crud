@@ -87,7 +87,12 @@ button {
 .search-bar {
     width: 300px;
     font-size: large;
-    border-radius: 18px;
+    border-radius: 5px;
+}
+
+.search-btn {
+    height: 40px;
+    border-radius: 5px;
 }
 
 table {
